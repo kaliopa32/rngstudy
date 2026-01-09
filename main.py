@@ -22,8 +22,6 @@ def main() -> None:
     for i in range(1, count + 1):
         r = rng.roll()
 
-        print(f"roll {i}/{count}")
-
         logger.log({
             "timestamp": datetime.now().isoformat(timespec="seconds"),
             "run_id": run_id,
@@ -33,6 +31,8 @@ def main() -> None:
             "roll": r["roll"],
             "modifier": r["modifier"],
         })
+
+    logger.print_latest_rolls(count)
 
 if __name__ == "__main__":
     main()
